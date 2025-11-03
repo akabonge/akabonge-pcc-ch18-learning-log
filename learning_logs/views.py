@@ -9,12 +9,11 @@ def index(request):
 
 def topics(request):
     topics = Topic.objects.order_by('date_added')
-    context = {'topics': topics}
-    return render(request, 'learning_logs/topics.html', context)
+    return render(request, 'learning_logs/topics.html', {'topics': topics})
 
 def topic(request, topic_id):
     topic = get_object_or_404(Topic, id=topic_id)
     entries = topic.entry_set.order_by('-date_added')
-    context = {'topic': topic, 'entries': entries}
-    return render(request, 'learning_logs/topic.html', context)
+    return render(request, 'learning_logs/topic.html', {'topic': topic, 'entries': entries})
+
 
