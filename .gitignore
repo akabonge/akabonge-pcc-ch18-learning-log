@@ -1,0 +1,5 @@
+# virtual environment files
+ll_env/ 
+
+# cache files
+*.pyc
