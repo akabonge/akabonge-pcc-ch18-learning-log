@@ -29,10 +29,13 @@ def new_topic(request):
     else:
         form = TopicForm(data=request.POST)
         if form.is_valid():
-            # NOTE: after migration, change to commit=False and set owner (step 3.5)
-            form.save()
+            new_topic = form.save(commit=False)
+            new_topic.owner = request.user
+            new_topic.save()
             return redirect('learning_logs:topics')
+
     return render(request, 'learning_logs/new_topic.html', {'form': form})
+
 
 @login_required
 def new_entry(request, topic_id):

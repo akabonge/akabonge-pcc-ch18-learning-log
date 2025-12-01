@@ -1,8 +1,16 @@
 {% extends "learning_logs/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+  <h2>Register an account.</h2>
+{% endblock header %}
+
 {% block content %}
-<form action="{% url 'accounts:register' %}" method="post">
-  {% csrf_token %}
-  {{ form.as_div }}
-  <button name="submit">Register</button>
-</form>
+  <form method="post" action="{% url 'accounts:register' %}" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+      <button name="submit" class="btn btn-primary">register</button>
+    {% endbuttons %}
+  </form>
 {% endblock content %}
