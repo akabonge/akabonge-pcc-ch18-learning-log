@@ -1,0 +1,16 @@
+{% extends "learning_logs/base.html" %}
+{% block content %}
+
+<h2>Learning Metrics</h2>
+<p><strong>Total hours logged:</strong> {{ total_hours_all }}</p>
+
+<h3>Hours by Topic</h3>
+<ul>
+  {% for row in totals_by_topic %}
+    <li>{{ row.topic__text }} — {{ row.total_hours }} hr</li>
+  {% empty %}
+    <li>No hours logged yet.</li>
+  {% endfor %}
+</ul>
+
+{% endblock content %}
