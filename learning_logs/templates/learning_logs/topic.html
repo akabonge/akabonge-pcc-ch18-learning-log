@@ -13,8 +13,11 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h3>
-          {{ entry.date_added|date:"M d, Y H:i" }}
+          Logged: {{ entry.date_added|date:"M d, Y H:i" }}
+          <br>
           <small>
+            Studied: {{ entry.study_date|date:"M d, Y" }} — {{ entry.hours_spent }} hr
+            &nbsp;|&nbsp;
             <a href="{% url 'learning_logs:edit_entry' entry.id %}">edit entry</a>
           </small>
         </h3>
