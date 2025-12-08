@@ -1,5 +1,5 @@
 {% extends "learning_logs/base.html" %}
-{% load bootstrap3 %}
+{% load django_bootstrap5 %}
 
 {% block header %}
   <h2>Register an account.</h2>
@@ -9,8 +9,6 @@
   <form method="post" action="{% url 'accounts:register' %}" class="form">
     {% csrf_token %}
     {% bootstrap_form form %}
-    {% buttons %}
       <button name="submit" class="btn btn-primary">register</button>
-    {% endbuttons %}
   </form>
 {% endblock content %}
